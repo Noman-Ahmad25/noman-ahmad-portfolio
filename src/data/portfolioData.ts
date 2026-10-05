@@ -57,7 +57,7 @@ export const PERSONAL_INFO = {
   githubHandle: 'Noman-Ahmad25',
   linkedinUrl: 'https://linkedin.com/in/noman-ahmad25',
   linkedinHandle: 'noman-ahmad25',
-  resumeFile: '/Noman Ahmad-Resume.pdf',
+  resumeFile: `${import.meta.env.BASE_URL}Noman Ahmad-Resume.pdf`,
   coreStack: ['Python', 'FastAPI', 'PostgreSQL', 'Node.js', 'AI/LLM'],
 };
 
