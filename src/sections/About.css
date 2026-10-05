@@ -1,0 +1,126 @@
+/* Editorial About Section */
+.about-editorial-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.9fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-big-statement {
+  font-size: clamp(1.85rem, 3.8vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text-head);
+  margin-bottom: 2rem;
+}
+
+.text-muted-editorial {
+  color: var(--text-muted);
+}
+
+.about-narrative-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  max-width: 65ch;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+/* Right Pipeline Card */
+.pipeline-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pipeline-card-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-line);
+}
+
+.pipeline-vertical-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.pipeline-vertical-node {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+}
+
+.node-step-badge {
+  font-size: 0.6875rem;
+  color: var(--accent);
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-line);
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.node-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.node-title-text {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-head);
+  word-break: break-word;
+}
+
+.node-note-text {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  word-break: break-word;
+}
+
+.pipeline-connector-line {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.connector-arrow {
+  color: var(--border-active);
+}
+
+@media (max-width: 900px) {
+  .about-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pipeline-card {
+    padding: 1.25rem 1rem;
+  }
+  .pipeline-vertical-node {
+    gap: 0.65rem;
+  }
+}

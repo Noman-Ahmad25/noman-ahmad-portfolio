@@ -1,0 +1,545 @@
+/* ==========================================================================
+   PROJECTS SECTION — ASYMMETRICAL BENTO GRID
+   Editorial, technical, grounded layout with project-specific visual panels.
+   ========================================================================== */
+
+.projects-editorial {
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+  border-bottom: 1px solid var(--border-line);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.projects-head {
+  margin-bottom: 3.5rem;
+}
+
+/* Bento Grid Container */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Base Bento Card */
+.bento-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-md);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 220ms ease, background-color 220ms ease;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.bento-card:hover {
+  border-color: var(--border-active);
+  background-color: rgba(18, 21, 30, 0.7);
+}
+
+/* Bento Placements */
+.bento-featured {
+  grid-column: span 7;
+  padding: 2.75rem;
+}
+
+.bento-alumni {
+  grid-column: span 5;
+}
+
+.bento-secondary {
+  grid-column: span 6;
+}
+
+/* Card Header */
+.bento-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.bento-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.bento-tag-accent {
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+}
+
+.bento-tag-muted {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.bento-status-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  color: var(--accent-emerald);
+}
+
+.bento-status-dev {
+  font-size: 0.6875rem;
+  color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.bento-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bento-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  color: var(--text-muted);
+  border: 1px solid var(--border-line);
+  background-color: transparent;
+  transition: all 160ms ease;
+  text-decoration: none;
+}
+
+.bento-icon-btn:hover {
+  color: var(--text-head);
+  border-color: var(--border-active);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Card Titles & Descriptions */
+.bento-featured-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+.bento-title-large {
+  font-size: clamp(1.4rem, 2.5vw, 1.95rem);
+  font-weight: 700;
+  color: var(--text-head);
+  letter-spacing: -0.025em;
+  margin-bottom: 0.75rem;
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+.bento-desc-large {
+  font-size: 1rem;
+  color: var(--text-body);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+  max-width: 68ch;
+  word-break: break-word;
+}
+
+.bento-title {
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  font-weight: 700;
+  color: var(--text-head);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.bento-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  word-break: break-word;
+}
+
+.bento-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+/* ==========================================================================
+   TECHNICAL VISUAL PANELS (Conceptual architecture & flows)
+   ========================================================================== */
+
+.tech-visual-panel {
+  background-color: var(--bg-base);
+  border: 1px solid var(--border-line);
+  border-radius: var(--radius-sm);
+  padding: 1.15rem 1.25rem;
+  margin-bottom: 1.75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tech-visual-panel.panel-compact {
+  padding: 1rem 1.15rem;
+  margin-bottom: 1.5rem;
+}
+
+.tech-visual-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  font-size: 0.6875rem;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tv-label {
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tv-sublabel {
+  color: var(--text-faint);
+}
+
+/* Flow Stepper Strip */
+.flow-stepper-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  width: 100%;
+}
+
+.flow-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--text-body);
+  background-color: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border-line);
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-sm);
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.flow-step-idx {
+  color: var(--accent);
+  font-size: 0.6875rem;
+  flex-shrink: 0;
+}
+
+.flow-step-name {
+  font-weight: 500;
+}
+
+.flow-step-highlight {
+  color: var(--text-head);
+  border-color: rgba(56, 189, 248, 0.4);
+  background-color: rgba(56, 189, 248, 0.08);
+}
+
+.flow-step-arrow {
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+/* Decision Matrix Preview */
+.decision-matrix-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border-line);
+  font-size: 0.75rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.dm-label {
+  color: var(--text-muted);
+}
+
+.dm-tokens {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.dm-token {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+
+.token-take {
+  color: #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.token-review {
+  color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.token-decline {
+  color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+/* Alumni indicators */
+.alumni-indicators {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-line);
+  width: 100%;
+}
+
+.ai-indicator {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.indicator-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 0.4rem;
+}
+
+/* CLI Terminal Preview (RepoMind) */
+.cli-terminal-preview {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  width: 100%;
+}
+
+.terminal-line {
+  line-height: 1.45;
+  color: var(--text-body);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.term-prompt {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.term-subtle {
+  color: var(--text-muted);
+  font-size: 0.6875rem;
+}
+
+.term-accent {
+  color: #38bdf8;
+  font-size: 0.6875rem;
+}
+
+/* Triage Checks Strip */
+.triage-checks-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-line);
+  font-size: 0.75rem;
+  width: 100%;
+}
+
+.triage-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.tc-tag {
+  color: var(--accent);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* Highlights List (No generic SaaS checkmarks) */
+.bento-bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.75rem;
+  width: 100%;
+}
+
+.bento-bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--text-body);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.bullet-point {
+  color: var(--accent);
+  flex-shrink: 0;
+  font-weight: 700;
+  margin-top: 0.05rem;
+  user-select: none;
+}
+
+/* Featured Bottom Grid */
+.bento-featured-bottom {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border-line);
+  width: 100%;
+}
+
+.bento-section-label {
+  display: block;
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.bento-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+.bento-bottom-strip {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-line);
+  width: 100%;
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (1024px, 768px, 390px)
+   Mobile layout intentionally stacks projects in a 1-column sequence.
+   Mobile technical flows convert to a vertical trace to prevent orphaned arrows.
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .bento-featured {
+    grid-column: span 12;
+  }
+  .bento-alumni {
+    grid-column: span 12;
+  }
+  .bento-secondary {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .bento-featured,
+  .bento-alumni,
+  .bento-secondary {
+    grid-column: span 1;
+    width: 100%;
+    padding: 1.65rem 1.35rem;
+  }
+
+  .bento-featured-bottom {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Transform flow steppers into a clean vertical track on tablet portrait & mobile:
+     NO orphaned arrows, NO arrow on its own row */
+  .flow-stepper-strip {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.45rem;
+    padding-left: 0.65rem;
+    border-left: 2px solid var(--border-line);
+  }
+
+  .flow-step-arrow {
+    display: none;
+  }
+
+  .flow-step {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .bento-card {
+    padding: 1.35rem 1rem;
+  }
+
+  .tech-visual-panel {
+    padding: 0.9rem;
+  }
+
+  .decision-matrix-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
+  }
+}

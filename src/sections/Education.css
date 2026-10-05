@@ -1,0 +1,33 @@
+/* Minimal Editorial Education */
+.edu-minimal-block {
+  margin-top: 2.5rem;
+  max-width: 680px;
+}
+
+.edu-school-name {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--text-head);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+  word-break: break-word;
+}
+
+.edu-degree-line {
+  font-size: 1.0625rem;
+  color: var(--text-body);
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+
+.edu-meta-line {
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.edu-sep {
+  color: var(--text-faint);
+}
