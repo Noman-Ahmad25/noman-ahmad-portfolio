@@ -52,7 +52,6 @@ export const PERSONAL_INFO = {
     'I build backend systems and AI applications with reliable APIs, strong data layers, and deterministic logic.',
   location: 'Satna, Madhya Pradesh, India',
   email: 'nomanahmad9356@gmail.com',
-  phone: '+91 93563 80208',
   githubUrl: 'https://github.com/Noman-Ahmad25',
   githubHandle: 'Noman-Ahmad25',
   linkedinUrl: 'https://linkedin.com/in/noman-ahmad25',

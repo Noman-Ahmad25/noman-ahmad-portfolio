@@ -89,8 +89,6 @@ export const Contact: React.FC = () => {
           {/* Location and Phone */}
           <div className="contact-meta-row font-mono text-xs">
             <span>Location: {PERSONAL_INFO.location}</span>
-            <span className="meta-sep">·</span>
-            <span>Tel: {PERSONAL_INFO.phone}</span>
           </div>
         </div>
       </div>
