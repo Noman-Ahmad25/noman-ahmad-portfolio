@@ -7,22 +7,19 @@ export const Experience: React.FC = () => {
     <section className="section experience-editorial" id="experience" aria-label="Work Experience">
       <div className="container">
         <span className="section-meta-tag">Experience</span>
-        <h2 className="section-headline">Work Experience</h2>
-        <p className="section-lead" style={{ marginBottom: '4rem' }}>
-          Experience building backend APIs, AI applications, and production-oriented software.
+        <h2 className="section-headline">Internship experience with production constraints.</h2>
+        <p className="section-lead">
+          Backend, mobile, and AI work from the updated resume, focused on API contracts, data migrations, permissions, realtime updates, and deployed workflows.
         </p>
 
-        {/* Editorial Timeline */}
         <div className="editorial-timeline">
           {EXPERIENCES.map((exp) => (
             <div key={exp.id} className="timeline-row">
-              {/* Left Column: Date & Meta */}
               <div className="timeline-date-col">
                 <span className="timeline-period font-mono">{exp.period}</span>
-                <span className="timeline-loc font-mono text-xs">{exp.location}</span>
+                <span className="timeline-loc font-mono text-xs">{exp.context}</span>
               </div>
 
-              {/* Right Column: Company, Role & Bullets */}
               <div className="timeline-content-col">
                 <div className="timeline-head-block">
                   <h3 className="timeline-company">{exp.company}</h3>
@@ -32,13 +29,11 @@ export const Experience: React.FC = () => {
                 <ul className="timeline-bullets">
                   {exp.bullets.map((bullet, idx) => (
                     <li key={idx} className="timeline-bullet-item">
-                      <span className="bullet-point font-mono">›</span>
-                      <span>{bullet}</span>
+                      {bullet}
                     </li>
                   ))}
                 </ul>
 
-                {/* Tech stack */}
                 <div className="timeline-tech-strip">
                   {exp.technologies.map((t) => (
                     <span key={t} className="tech-tag">

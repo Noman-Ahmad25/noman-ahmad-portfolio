@@ -1,95 +1,65 @@
-/* ==========================================================================
-   SKILLS SECTION — RESPONSIVE GROUPS & CHIPS
-   ========================================================================== */
+.skills-editorial {
+  background: var(--bg-base);
+}
 
-.skills-groups {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-top: 3.5rem;
+.skills-matrix {
+  margin-top: 3rem;
+  border-top: 1px solid var(--border-line);
 }
 
 .skill-group-row {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 240px minmax(0, 1fr);
   gap: 2.5rem;
-  padding: 1.6rem 0;
+  padding: 1.55rem 0;
   border-bottom: 1px solid var(--border-line);
-  align-items: center;
-}
-
-.skill-group-row:first-child {
-  border-top: 1px solid var(--border-line);
-}
-
-.skill-group-cat {
-  padding-top: 0.1rem;
 }
 
 .skill-cat-title {
-  font-size: 1.1rem;
-  font-weight: 700;
+  display: inline-flex;
   color: var(--text-head);
-  letter-spacing: -0.01em;
-  word-break: break-word;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
 }
 
-.skill-group-chips {
+.skill-group-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  width: 100%;
+  gap: 0.15rem 0.7rem;
+  color: var(--text-body);
+  font-size: 0.98rem;
+  line-height: 1.75;
 }
 
-.skill-chip {
+.skill-group-list span {
   display: inline-flex;
   align-items: center;
-  font-size: 0.8125rem;
-  color: var(--text-body);
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-line);
-  padding: 0.3rem 0.65rem;
-  border-radius: var(--radius-sm);
-  transition: all 160ms ease;
-  word-break: break-word;
-  max-width: 100%;
-  line-height: 1.4;
+  min-width: 0;
 }
 
-.skill-chip:hover {
-  color: var(--text-head);
-  border-color: var(--border-active);
-  background-color: rgba(255, 255, 255, 0.04);
+.skill-group-list span:not(:last-child)::after {
+  content: '/';
+  color: var(--text-faint);
+  margin-left: 0.7rem;
 }
 
-/* Tablet & Mobile Responsiveness */
-@media (max-width: 768px) {
-  .skills-groups {
-    margin-top: 2.5rem;
-  }
-
+@media (max-width: 760px) {
   .skill-group-row {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
     padding: 1.25rem 0;
   }
 
   .skill-cat-title {
-    font-size: 0.875rem;
     color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
     font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
-  .skill-group-chips {
-    gap: 0.45rem;
-  }
-
-  .skill-chip {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.55rem;
+  .skill-group-list {
+    font-size: 0.93rem;
   }
 }

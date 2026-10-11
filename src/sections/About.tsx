@@ -1,63 +1,87 @@
 import React from 'react';
-import { ArrowDown } from 'lucide-react';
+import { Braces, DatabaseZap, LockKeyhole, ScanSearch } from 'lucide-react';
 import './About.css';
 
-const PIPELINE_STAGES = [
-  { step: '01', title: 'Input', note: 'Raw specs, tickets, or user requests' },
-  { step: '02', title: 'Validation', note: 'Pydantic schemas and regex checks' },
-  { step: '03', title: 'Deterministic Logic', note: 'Business rules and database constraints' },
-  { step: '04', title: 'LLM Reasoning', note: 'Targeted Gemini extraction and intent' },
-  { step: '05', title: 'Structured Output', note: 'Type-safe, validated results' },
+const APPROACH_POINTS = [
+  {
+    title: 'Contracts before creativity',
+    copy: 'LLM outputs are routed through schemas, recovery paths, and deterministic decision gates before they become system behavior.',
+    icon: Braces,
+  },
+  {
+    title: 'Data models that carry the workflow',
+    copy: 'Patient-linked appointment records, Alembic migrations, and tenant-scoped data access keep backend features explicit.',
+    icon: DatabaseZap,
+  },
+  {
+    title: 'Access control as product logic',
+    copy: 'RBAC appears across internship and project work, from ERP branch permissions to four-role tenant platforms.',
+    icon: LockKeyhole,
+  },
+  {
+    title: 'Automation with review points',
+    copy: 'Ticket triage and requirement analysis use deterministic checks first, then human-editable LLM results where judgment matters.',
+    icon: ScanSearch,
+  },
 ];
 
 export const About: React.FC = () => {
   return (
     <section className="section about-editorial" id="about" aria-label="Engineering Philosophy">
       <div className="container">
-        <span className="section-meta-tag">Philosophy</span>
+        <span className="section-meta-tag">Engineering Approach</span>
 
         <div className="about-editorial-grid">
-          {/* Left: Statement & Narrative */}
           <div className="about-left">
             <h2 className="about-big-statement">
-              Deterministic logic first.
-              <br />
-              <span className="text-muted-editorial">LLMs where they add value.</span>
+              Systems that let models reason without letting them drift.
             </h2>
 
             <div className="about-narrative-copy">
               <p>
-                I prefer deterministic logic for the parts of a system that need predictable behavior, and use LLMs where they provide useful reasoning or language capabilities.
+                My strongest work sits where backend reliability and AI behavior meet: schema-validated outputs, explicit database contracts, tenant boundaries, and real-time interfaces that keep state understandable.
               </p>
               <p>
-                That means validating inputs, enforcing schemas, and handling business rules before relying on an LLM. This approach is reflected in my AI projects, where structured outputs and bounded context help keep model behavior reliable.
+                The portfolio emphasizes this pattern through the requirement analyzer, AI ticket triage, AlumniConn, and internship work building FastAPI/PostgreSQL APIs, RBAC, migrations, SSE dashboards, and mobile capture flows.
               </p>
             </div>
           </div>
 
-          {/* Right: Flow Visual */}
-          <div className="about-right">
-            <div className="pipeline-card">
-              <span className="pipeline-card-label font-mono">Engineering Pipeline</span>
+          <div className="approach-principles" aria-label="Engineering principles">
+            {APPROACH_POINTS.map(({ title, copy, icon: Icon }) => (
+              <article key={title} className="approach-principle">
+                <Icon size={18} aria-hidden="true" />
+                <h3>{title}</h3>
+                <p>{copy}</p>
+              </article>
+            ))}
+          </div>
 
-              <div className="pipeline-vertical-list">
-                {PIPELINE_STAGES.map((stage, idx) => (
-                  <React.Fragment key={stage.step}>
-                    <div className="pipeline-vertical-node">
-                      <div className="node-step-badge font-mono">{stage.step}</div>
-                      <div className="node-content">
-                        <span className="node-title-text">{stage.title}</span>
-                        <span className="node-note-text font-mono">{stage.note}</span>
-                      </div>
-                    </div>
-
-                    {idx < PIPELINE_STAGES.length - 1 && (
-                      <div className="pipeline-connector-line" aria-hidden="true">
-                        <ArrowDown size={14} className="connector-arrow" />
-                      </div>
-                    )}
-                  </React.Fragment>
-                ))}
+          <div className="boundary-map" aria-label="Trust boundary visualization">
+            <div className="boundary-map-header">
+              <span className="font-mono">Trust Boundary Map</span>
+              <span className="font-mono">deterministic {'->'} probabilistic {'->'} reviewed</span>
+            </div>
+            <div className="boundary-grid">
+              <div className="boundary-zone zone-strong">
+                <span className="zone-index font-mono">01</span>
+                <strong>Inputs</strong>
+                <p>Specs, tickets, records, repository structure</p>
+              </div>
+              <div className="boundary-zone zone-strong">
+                <span className="zone-index font-mono">02</span>
+                <strong>Deterministic Gates</strong>
+                <p>Regex checks, IDs, RBAC, migrations, Pydantic schemas</p>
+              </div>
+              <div className="boundary-zone zone-model">
+                <span className="zone-index font-mono">03</span>
+                <strong>Model Tasks</strong>
+                <p>Extraction, routing, sentiment, requirement reasoning</p>
+              </div>
+              <div className="boundary-zone zone-output">
+                <span className="zone-index font-mono">04</span>
+                <strong>Bounded Outputs</strong>
+                <p>TAKE / REVIEW / DECLINE, editable drafts, ranked matches</p>
               </div>
             </div>
           </div>

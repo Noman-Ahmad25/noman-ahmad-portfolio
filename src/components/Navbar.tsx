@@ -11,9 +11,10 @@ interface NavLink {
 
 const NAV_LINKS: NavLink[] = [
   { label: 'Work', href: '#projects' },
+  { label: 'Approach', href: '#about' },
   { label: 'Experience', href: '#experience' },
   { label: 'Skills', href: '#skills' },
-  { label: 'About', href: '#about' },
+  { label: 'Proof', href: '#achievements' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -35,17 +36,31 @@ export const Navbar: React.FC = () => {
     } else {
       document.body.style.overflow = '';
     }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [menuOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="container nav-inner">
-        {/* Left: Clean name */}
         <a href="#" className="nav-brand">
+          <span className="brand-mark" aria-hidden="true">NA</span>
           <span className="brand-text">Noman Ahmad</span>
         </a>
 
-        {/* Center / Desktop Links */}
         <nav className="nav-menu" aria-label="Main Navigation">
           <ul className="nav-list">
             {NAV_LINKS.map((link) => (
@@ -58,7 +73,6 @@ export const Navbar: React.FC = () => {
           </ul>
         </nav>
 
-        {/* Right: GitHub, LinkedIn, Resume */}
         <div className="nav-right">
           <a
             href={PERSONAL_INFO.githubUrl}
@@ -91,7 +105,6 @@ export const Navbar: React.FC = () => {
             <ArrowUpRight size={13} />
           </a>
 
-          {/* Mobile Menu Button */}
           <button
             type="button"
             className="mobile-btn"
@@ -104,7 +117,6 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       {menuOpen && (
         <div className="mobile-overlay" onClick={() => setMenuOpen(false)}>
           <div className="mobile-drawer" onClick={(e) => e.stopPropagation()}>
@@ -138,8 +150,7 @@ export const Navbar: React.FC = () => {
               <a
                 href={PERSONAL_INFO.resumeFile}
                 download="Noman Ahmad-Resume.pdf"
-                className="btn btn-primary"
-                style={{ width: '100%', marginBottom: '1rem' }}
+                className="btn btn-primary mobile-resume-link"
               >
                 Download Resume PDF
               </a>
@@ -148,8 +159,7 @@ export const Navbar: React.FC = () => {
                   href={PERSONAL_INFO.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-outline btn-sm"
-                  style={{ flex: 1 }}
+                  className="btn btn-outline btn-sm mobile-social-link"
                 >
                   <GithubIcon size={16} />
                   <span>GitHub</span>
@@ -158,8 +168,7 @@ export const Navbar: React.FC = () => {
                   href={PERSONAL_INFO.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-outline btn-sm"
-                  style={{ flex: 1 }}
+                  className="btn btn-outline btn-sm mobile-social-link"
                 >
                   <LinkedinIcon size={16} />
                   <span>LinkedIn</span>

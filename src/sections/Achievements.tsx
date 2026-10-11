@@ -9,9 +9,11 @@ export const Achievements: React.FC = () => {
     <section className="section achievements-editorial" id="achievements" aria-label="Achievements">
       <div className="container">
         <span className="section-meta-tag">Achievements</span>
-        <h2 className="section-headline">Achievements &amp; Certifications</h2>
+        <h2 className="section-headline">Verified proof points.</h2>
+        <p className="section-lead">
+          Challenge work and certifications from the resume, kept compact so the main focus stays on shipped systems.
+        </p>
 
-        {/* Clean Consistent Compact List */}
         <div className="achievements-compact-list">
           {ACHIEVEMENTS.map((item) => (
             <div key={item.id} className="achievement-row">
@@ -36,7 +38,7 @@ export const Achievements: React.FC = () => {
                     aria-label={`View repository for ${item.title}`}
                   >
                     <GithubIcon size={14} />
-                    <span>Challenge Repository</span>
+                    <span>Source</span>
                     <ArrowUpRight size={12} />
                   </a>
                 )}

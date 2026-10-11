@@ -5,10 +5,10 @@
 }
 
 .edu-school-name {
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-size: 1.45rem;
   font-weight: 700;
   color: var(--text-head);
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   margin-bottom: 0.35rem;
   word-break: break-word;
 }
@@ -30,4 +30,10 @@
 
 .edu-sep {
   color: var(--text-faint);
+}
+
+@media (max-width: 480px) {
+  .edu-school-name {
+    font-size: 1.22rem;
+  }
 }

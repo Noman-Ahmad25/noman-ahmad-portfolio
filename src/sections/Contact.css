@@ -13,9 +13,9 @@
 }
 
 .contact-editorial-heading {
-  font-size: clamp(2.15rem, 5vw, 3.5rem);
+  font-size: 3.25rem;
   font-weight: 800;
-  letter-spacing: -0.035em;
+  letter-spacing: 0;
   color: var(--text-head);
   line-height: 1.1;
   margin-bottom: 1.25rem;
@@ -23,7 +23,7 @@
 }
 
 .contact-editorial-lead {
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  font-size: 1.12rem;
   color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 3rem;
@@ -51,7 +51,7 @@
   display: flex;
   align-items: center;
   gap: 0.875rem;
-  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--text-head);
   text-decoration: none;
@@ -100,6 +100,8 @@
   transition: all 150ms ease;
   width: 100%;
   box-sizing: border-box;
+  min-width: 0;
+  gap: 0.75rem;
 }
 
 .editorial-contact-link:hover {
@@ -112,15 +114,19 @@
   display: flex;
   align-items: center;
   gap: 0.65rem;
+  min-width: 0;
 }
 
 .link-title {
   font-size: 0.9375rem;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .link-detail {
   color: var(--text-muted);
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .link-arrow {
@@ -166,5 +172,14 @@
 
   .editorial-contact-link {
     padding: 1.1rem 1.25rem;
+  }
+
+  .contact-editorial-heading {
+    font-size: 2.05rem;
+  }
+
+  .contact-editorial-lead,
+  .email-display-link {
+    font-size: 1rem;
   }
 }

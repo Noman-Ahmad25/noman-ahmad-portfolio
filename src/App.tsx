@@ -17,8 +17,8 @@ export const App: React.FC = () => {
       <main id="main-content">
         <Hero />
         <About />
-        <Experience />
         <Projects />
+        <Experience />
         <Skills />
         <Achievements />
         <Education />

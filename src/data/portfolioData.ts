@@ -1,10 +1,12 @@
 export interface Project {
   id: string;
   title: string;
-  subtitle?: string;
+  eyebrow: string;
   status?: string;
   technologies: string[];
   description: string;
+  problem: string;
+  implementation: string;
   bullets: string[];
   githubUrl?: string;
   liveUrl?: string;
@@ -15,7 +17,7 @@ export interface ExperienceItem {
   id: string;
   role: string;
   company: string;
-  location: string;
+  context: string;
   period: string;
   bullets: string[];
   technologies: string[];
@@ -46,10 +48,11 @@ export interface EducationInfo {
 export const PERSONAL_INFO = {
   name: 'Noman Ahmad',
   title: 'Backend & AI Software Engineer',
+  resumeHeadline: 'Backend Engineer | Python, FastAPI & AI Systems',
   currentRole: 'Software Developer Intern @ Dream Filler',
   educationStatus: 'Computer Science · Expected 2027',
   tagline:
-    'I build backend systems and AI applications with reliable APIs, strong data layers, and deterministic logic.',
+    'B.Tech Computer Science student graduating in 2027, building FastAPI/PostgreSQL backends, multi-role RBAC, real-time systems, and structured LLM workflows with deterministic decision logic.',
   location: 'Satna, Madhya Pradesh, India',
   email: 'nomanahmad9356@gmail.com',
   githubUrl: 'https://github.com/Noman-Ahmad25',
@@ -57,7 +60,7 @@ export const PERSONAL_INFO = {
   linkedinUrl: 'https://linkedin.com/in/noman-ahmad25',
   linkedinHandle: 'noman-ahmad25',
   resumeFile: `${import.meta.env.BASE_URL}Noman Ahmad-Resume.pdf`,
-  coreStack: ['Python', 'FastAPI', 'PostgreSQL', 'Node.js', 'AI/LLM'],
+  coreStack: ['Python', 'FastAPI', 'PostgreSQL', 'Node.js', 'Gemini'],
 };
 
 export const EXPERIENCES: ExperienceItem[] = [
@@ -65,24 +68,27 @@ export const EXPERIENCES: ExperienceItem[] = [
     id: 'dream-filler',
     role: 'Software Developer Intern',
     company: 'Dream Filler',
-    location: 'Satna, India',
-    period: 'Sep 2026 – Present',
+    context: 'YOLO, Flutter, Express, MongoDB, SSE',
+    period: 'Sep 2026 - Present',
     bullets: [
-      'Fine-tuning a YOLO object-detection model on a custom dataset, including image collection and labeling with Roboflow.',
-      'Building features for a mobile application using Flutter, Node.js/Express, and MongoDB, including a redesign of the home screen.',
+      'Fine-tuned YOLO across 4 iterations on a self-collected, self-labeled 62-image dataset using Roboflow; achieved 75.5% mAP and 11.8ms inference latency.',
+      'Introduced a dedicated Patient model, migrated existing MongoDB data, and adapted appointment workflows to use patient-linked records.',
+      'Built custom Flutter camera capture with image compression, replacing image_picker to address memory-related app restarts.',
+      'Implemented Server-Sent Events for server-pushed real-time queue dashboard updates, reducing reliance on repeated polling.',
+      'Built a public React appointment interface and added or modified 15+ Node.js/Express API endpoints across 3-5 modules.',
     ],
-    technologies: ['Flutter', 'Node.js', 'Express', 'MongoDB', 'YOLO', 'Roboflow'],
+    technologies: ['Flutter', 'React', 'Node.js', 'Express', 'MongoDB', 'SSE', 'YOLO', 'Roboflow'],
   },
   {
     id: 'quantumbay',
     role: 'Backend Development Intern',
     company: 'Quantumbay Cloud',
-    location: 'Remote',
-    period: 'Jul 2026 – Sep 2026',
+    context: 'Remote · Medorax pharmacy ERP',
+    period: 'Jul 2026 - Sep 2026',
     bullets: [
-      'Developed FastAPI and PostgreSQL APIs for a modular pharmacy ERP covering authentication, staff management, inventory, purchasing, and billing.',
-      'Designed database schemas and Alembic migrations, including resolving migration conflicts across independently developed modules.',
-      'Implemented role-based access control and branch-level data handling, and debugged routing and API contract issues during service integration.',
+      'Built 3 modules and 40+ FastAPI/PostgreSQL endpoints for Medorax, a pharmacy ERP, integrating with 10+ modules and the frontend.',
+      'Implemented RBAC for owner, manager, accountant, pharmacist, and inventory manager roles with per-module and branch-level permissions.',
+      'Designed schemas and Alembic migrations; resolved migration conflicts across independently developed modules.',
     ],
     technologies: ['FastAPI', 'PostgreSQL', 'Alembic', 'RBAC', 'REST APIs'],
   },
@@ -92,9 +98,14 @@ export const PROJECTS: Project[] = [
   {
     id: 'requirement-analyzer',
     title: 'AI Requirement Analyzer & Project Decision Engine',
-    technologies: ['FastAPI', 'Next.js', 'PostgreSQL', 'Gemini', 'Docker', 'Pydantic'],
+    eyebrow: 'Structured LLM workflow',
+    technologies: ['FastAPI', 'Next.js', 'PostgreSQL', 'Gemini', 'Pydantic v2'],
     description:
       'Turns vague or contradictory client specifications into structured requirements and a deterministic TAKE, REVIEW, or DECLINE decision.',
+    problem:
+      'Raw client specs are often incomplete, contradictory, or too vague to route directly into engineering work.',
+    implementation:
+      'Gemini performs extraction, while Pydantic v2 validation, recovery paths, provenance tags, and capability matching keep the final decision bounded.',
     bullets: [
       'Gemini extracts structured requirements from unstructured specifications.',
       'Pydantic schemas validate LLM output and recover from malformed responses.',
@@ -108,9 +119,14 @@ export const PROJECTS: Project[] = [
     id: 'ticket-triage',
     title: 'Deterministic-First AI Ticket Triage System',
     status: 'In Development',
+    eyebrow: 'AI support routing',
     technologies: ['Python', 'Gemini', 'SQL', 'REST'],
     description:
       'Routes support tickets through deterministic checks before using an LLM for tasks that require language understanding.',
+    problem:
+      'Support automation needs reliable routing and risk detection before language-model reasoning enters the loop.',
+    implementation:
+      'The pipeline normalizes tickets, extracts IDs, detects language, checks VIP status, flags legal-risk terms, then lets Gemini handle intent, sentiment, and draft routing.',
     bullets: [
       'Normalizes tickets, detects language, extracts IDs with regex, checks VIP status, and flags legal-risk terms before the LLM call.',
       'Gemini handles intent, sentiment, and routing.',
@@ -121,16 +137,21 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'alumniconn',
-    title: 'AlumniConn — Multi-Tenant Student–Alumni Platform',
+    title: 'AlumniConn - Student-Alumni Platform',
     status: 'Live on Render',
-    technologies: ['React 19', 'TypeScript', 'FastAPI', 'PostgreSQL'],
+    eyebrow: 'Deployed multi-tenant platform',
+    technologies: ['React', 'TypeScript', 'FastAPI', 'PostgreSQL', 'pgvector'],
     description:
       'A multi-tenant platform for connecting students and alumni through profiles, messaging, and recommendation features.',
+    problem:
+      'Institution-scoped alumni networks need access control, persistent messaging, and useful mentor discovery without leaking tenant data.',
+    implementation:
+      'Tenant-scoped data access, four-role RBAC, JWT authentication, pgvector recommendations, WebSocket messaging, and a one-click demo environment support the workflow.',
     bullets: [
-      'JWT authentication and four-tier role-based access control.',
-      'Real-time messaging using WebSockets.',
-      'Embedding-based semantic ranking for mentor and connection recommendations.',
-      'React 19, TypeScript, FastAPI, and PostgreSQL.',
+      'Built a deployed multi-tenant platform with tenant-scoped data access, four-role RBAC, and JWT authentication.',
+      'Implemented hybrid mentor recommendations using 384-dimensional embeddings, pgvector similarity search, and deterministic ranking heuristics.',
+      'Developed real-time WebSocket messaging with online presence, persistent chat history, and Cloudinary image attachments.',
+      'Added a one-click demo environment with synthetic institutional data and an in-browser email verification inbox.',
     ],
     githubUrl: 'https://github.com/Noman-Ahmad25/AlumniConn',
     liveUrl: 'https://alumniconn-umber.vercel.app',
@@ -138,15 +159,19 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'repomind',
-    title: 'RepoMind — AI-Powered Repository Intelligence CLI',
-    technologies: ['Python', 'Tree-sitter', 'pgvector', 'Gemini', 'Docker'],
+    title: 'RepoMind - Repository Intelligence CLI',
+    eyebrow: 'Developer tool',
+    technologies: ['Python', 'Tree-sitter', 'pgvector', 'Gemini'],
     description:
       'A developer tool that combines repository analysis with LLM reasoning to surface technical debt.',
+    problem:
+      'Large repositories are hard to inspect manually, especially when structural code facts and reasoning need to be combined.',
+    implementation:
+      'Tree-sitter produces deterministic syntax analysis, pgvector stores embeddings, Gemini reasons over the retrieved context, and CI covers Pytest, Ruff, mypy, and GitHub Actions.',
     bullets: [
-      'Uses Tree-sitter for deterministic code analysis.',
-      'Uses Gemini for reasoning over the analysis results.',
-      'Uses pgvector for repository intelligence.',
-      'Automated Pytest, Ruff, mypy, and GitHub Actions checks.',
+      'Combined deterministic Tree-sitter analysis with Gemini reasoning to surface technical debt.',
+      'Used pgvector-backed embeddings for repository intelligence and retrieval.',
+      'Added CI with Pytest, Ruff, mypy, and GitHub Actions.',
     ],
     githubUrl: 'https://github.com/Noman-Ahmad25/repomind',
     category: 'Developer Tools',
@@ -155,16 +180,20 @@ export const PROJECTS: Project[] = [
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: 'Backend',
-    skills: ['Python', 'FastAPI', 'Flask', 'Node.js', 'Express.js', 'REST APIs', 'WebSockets', 'JWT', 'OAuth', 'RBAC'],
+    title: 'Languages',
+    skills: ['Python', 'Java', 'JavaScript', 'TypeScript', 'SQL'],
   },
   {
-    title: 'Frontend',
-    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
+    title: 'Backend',
+    skills: ['FastAPI', 'Node.js', 'Express.js', 'REST APIs', 'WebSockets', 'SSE', 'JWT', 'RBAC', 'Pydantic'],
+  },
+  {
+    title: 'Frontend & Mobile',
+    skills: ['React', 'Next.js', 'Tailwind CSS', 'Flutter'],
   },
   {
     title: 'Databases',
-    skills: ['PostgreSQL', 'MongoDB', 'Redis', 'SQLAlchemy', 'Alembic', 'pgvector'],
+    skills: ['PostgreSQL', 'MongoDB', 'SQLAlchemy', 'Alembic', 'pgvector'],
   },
   {
     title: 'AI / ML',
@@ -174,7 +203,6 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       'Structured outputs',
       'RAG',
       'Embeddings',
-      'Semantic search',
       'FAISS',
       'YOLO',
       'Roboflow',
@@ -182,7 +210,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     title: 'Testing & DevOps',
-    skills: ['Pytest', 'Vitest', 'Ruff', 'mypy', 'Git', 'GitHub Actions', 'CI/CD', 'Docker', 'Linux', 'Render'],
+    skills: ['Pytest', 'Ruff', 'mypy', 'Git', 'GitHub Actions', 'CI/CD', 'Docker', 'Render'],
   },
 ];
 

@@ -19,9 +19,9 @@ export const Contact: React.FC = () => {
         <span className="section-meta-tag">Contact</span>
 
         <div className="contact-editorial-content">
-          <h2 className="contact-editorial-heading">Let's build something useful.</h2>
+          <h2 className="contact-editorial-heading">Backend, AI systems, or a useful product from zero.</h2>
           <p className="contact-editorial-lead">
-            Interested in backend engineering, AI systems, or building something from scratch? Get in touch.
+            Reach me directly for backend engineering, AI workflow, or full-stack project opportunities.
           </p>
 
           {/* Direct Email Bar */}
@@ -86,7 +86,7 @@ export const Contact: React.FC = () => {
             </a>
           </div>
 
-          {/* Location and Phone */}
+          {/* Location */}
           <div className="contact-meta-row font-mono text-xs">
             <span>Location: {PERSONAL_INFO.location}</span>
           </div>
