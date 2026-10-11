@@ -67,7 +67,7 @@ export const Hero: React.FC = () => {
 
           <aside className="hero-signal-panel" aria-label="Portfolio highlights">
             <div className="signal-panel-top">
-              <span className="signal-label font-mono">Verified Resume Signals</span>
+              <span className="signal-label font-mono">Engineering Highlights</span>
               <a
                 href={PERSONAL_INFO.resumeFile}
                 download="Noman Ahmad-Resume.pdf"

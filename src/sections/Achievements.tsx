@@ -9,7 +9,7 @@ export const Achievements: React.FC = () => {
     <section className="section achievements-editorial" id="achievements" aria-label="Achievements">
       <div className="container">
         <span className="section-meta-tag">Achievements</span>
-        <h2 className="section-headline">Verified proof points.</h2>
+        <h2 className="section-headline">Challenges and certifications.</h2>
         <p className="section-lead">
           Challenge work and certifications from the resume, kept compact so the main focus stays on shipped systems.
         </p>
