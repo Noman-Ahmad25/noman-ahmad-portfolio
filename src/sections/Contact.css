@@ -115,18 +115,25 @@
   align-items: center;
   gap: 0.65rem;
   min-width: 0;
+  flex-shrink: 0;
 }
 
 .link-title {
   font-size: 0.9375rem;
   font-weight: 600;
-  overflow-wrap: anywhere;
+  white-space: nowrap;
 }
 
 .link-detail {
   color: var(--text-muted);
+  flex: 1;
   min-width: 0;
   overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.link-arrow {
+  flex-shrink: 0;
 }
 
 .link-arrow {
